@@ -290,9 +290,9 @@ func (c *Config) collectDBForCustomMetrics() {
 	stats := Dao.TableHistoryStatByPipeline(from, to)
 	if len(stats) > 0 {
 		for _, stat := range stats {
-			r = appendVal(r, []string{model.Otter, "pipeline", stat.PipelineID, "insertCount"}, int(stat.InsertCount))
-			r = appendVal(r, []string{model.Otter, "pipeline", stat.PipelineID, "updateCount"}, int(stat.UpdateCount))
-			r = appendVal(r, []string{model.Otter, "pipeline", stat.PipelineID, "deleteCount"}, int(stat.DeleteCount))
+			r = appendVal(r, []string{model.Otter, "pipeline", stat.PipelineID, "inserts"}, int(stat.InsertCount))
+			r = appendVal(r, []string{model.Otter, "pipeline", stat.PipelineID, "updates"}, int(stat.UpdateCount))
+			r = appendVal(r, []string{model.Otter, "pipeline", stat.PipelineID, "deletes"}, int(stat.DeleteCount))
 		}
 	}
 
